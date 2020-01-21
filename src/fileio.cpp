@@ -13,7 +13,7 @@ bool getData(const std::string& inputLocation, std::vector<std::string>& data)
     //check if file is opened
     if(!ifile.is_open())
     {
-        std::cout << "File " << ifile << "didn't open successfully!" << std::endl;
+        std::cout << "File " << inputLocation << "didn't open successfully!" << std::endl;
         return false;
     }
     //load file contents

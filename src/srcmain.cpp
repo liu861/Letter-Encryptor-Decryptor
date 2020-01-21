@@ -34,15 +34,20 @@ int ProcessCommandArgs(int argc, const char* argv[])
         {
             //we're in encrypt mode
             std::cout << "Encrypting!" << std::endl;
+            return 0;
         }
 		// TODO: complete decrypt mode
-        if(edType == DSUB)
+        else if(edType == DSUB)
         {
             //we're in decrypt mode
             std::cout << "Decrypting!" << std::endl;
+            return 0;
+        }
+        else
+        {
+            return 1;
         }
 	}
 
 	// TODO: Fix this
-	return 0;
 }
