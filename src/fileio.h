@@ -7,7 +7,7 @@
 // Name: 
 //		getData
 // Input:
-//		1. A string (passed as constant reference) contining the input file name
+//		1. A string (passed as constant reference) containing the input file name
 //		2. A string vector (passed by reference) that will eventually contain the file contents
 // Output: 
 //		Boolean -- true indicating success
@@ -22,7 +22,7 @@ bool getData(const std::string& inputLocation, std::vector<std::string>& data);
 // Name: 
 //		putData
 // Input:
-//		1. A string (passed as constant reference) contining the output file name
+//		1. A string (passed as constant reference) containing the output file name
 //		2. A string vector (passed as constant reference) with the data to write
 // Output: 
 //		Boolean -- true indicating success

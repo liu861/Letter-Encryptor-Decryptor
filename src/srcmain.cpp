@@ -30,8 +30,17 @@ int ProcessCommandArgs(int argc, const char* argv[])
 		std::string outputFileName(argv[2]);		
 
 		// TODO: complete encrypt mode
-
+        if(edType == ESUB)
+        {
+            //we're in encrypt mode
+            std::cout << "Encrypting!" << std::endl;
+        }
 		// TODO: complete decrypt mode
+        if(edType == DSUB)
+        {
+            //we're in decrypt mode
+            std::cout << "Decrypting!" << std::endl;
+        }
 	}
 
 	// TODO: Fix this
