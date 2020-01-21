@@ -1,7 +1,7 @@
 # ITP 365 HW01 - Spring 2020 #
 
 ## Student information... ##
-Name: Yue Liu
+Name: Yue (Amy) Liu
 
 Email: liu861@usc.edu
 
