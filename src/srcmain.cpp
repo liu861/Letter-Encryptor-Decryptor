@@ -33,7 +33,6 @@ int ProcessCommandArgs(int argc, const char* argv[])
         if(edType == ESUB)
         {
             //we're in encrypt mode
-            std::cout << "Encrypting!" << std::endl;
             //create an empty vector to store input text
             std::vector<std::string> enData;
             //move input data into vector of strings
@@ -63,7 +62,6 @@ int ProcessCommandArgs(int argc, const char* argv[])
         else if(edType == DSUB)
         {
             //we're in decrypt mode
-            std::cout << "Decrypting!" << std::endl;
             //create an empty vector to store input text
             std::vector<std::string> deData;
             getData(inputFileName, deData);

@@ -16,13 +16,13 @@ void substitutionCypherEncrypt(const std::string& cypher, const std::string& inp
         {
             char upperLetter = cypher.at(i);
             putchar(toupper(upperLetter));
-            output.push_back(upperLetter);
+            output += upperLetter;
         }
         else
         {
             char lowerLetter = cypher.at(i);
             putchar(tolower(lowerLetter));
-            output.push_back(lowerLetter);
+            output += lowerLetter;
         }
     }
 }
@@ -38,13 +38,13 @@ void substitutionCypherDecrypt(const std::string& cypher, const std::string& inp
         {
             char upperLetter = input.at(i);
             putchar(toupper(upperLetter));
-            output.push_back(upperLetter);
+            output += upperLetter;
         }
         else
         {
             char lowerLetter = input.at(i);
             putchar(tolower(lowerLetter));
-            output.push_back(lowerLetter);
+            output += lowerLetter;
         }
     }
 }
