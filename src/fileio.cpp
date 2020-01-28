@@ -33,7 +33,22 @@ bool getData(const std::string& inputLocation, std::vector<std::string>& data)
 bool putData(const std::string& outputLocation, const std::vector<std::string>& data)
 {
     // TODO: Complete function
-
+    std::ofstream ofile(outputLocation);
+    //check if file is opened
+    if(!ofile.is_open())
+    {
+        std::cout << "File" << outputLocation << "didn't open successfully!" << std::endl;
+        return false;
+    }
+    //write to file
+    while(!data.empty())
+    {
+        int i = 0;
+        ofile << data[i] << "\n";
+        i++;
+    }
     // TODO: Fix this
+    //close file
+    ofile.close();
     return true;
 }
