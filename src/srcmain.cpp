@@ -43,12 +43,20 @@ int ProcessCommandArgs(int argc, const char* argv[])
             cypher += enData[0];
             //declare input and output strings for subcypher function
             std::string input;
-            input += enData[1];
             std::string output;
-            //encrypting
-            substitutionCypherEncrypt(cypher, input, output);
+            //empty vector to store output text
+            std::vector<std::string> enOutput;
+            while(!enData.empty())
+            {
+                int i = 1;
+                input += enData[i];
+                //encrypting
+                substitutionCypherEncrypt(cypher, input, output);
+                enOutput.push_back(output);
+                i++;
+            }
             //write out to file
-            putData(outputFileName, enData);
+            putData(outputFileName, enOutput);
             return 0;
         }
 		// TODO: complete decrypt mode
@@ -56,7 +64,7 @@ int ProcessCommandArgs(int argc, const char* argv[])
         {
             //we're in decrypt mode
             std::cout << "Decrypting!" << std::endl;
-            //create an empty vector
+            //create an empty vector to store input text
             std::vector<std::string> deData;
             getData(inputFileName, deData);
             //get cypher from line 1
@@ -64,12 +72,20 @@ int ProcessCommandArgs(int argc, const char* argv[])
             cypher += deData[0];
             //declare input and output strings for subcypher function
             std::string input;
-            input += deData[1];
             std::string output;
-            //decryptinng
-            substitutionCypherDecrypt(cypher, inputFileName, outputFileName);
+            //empty vector to store output text
+            std::vector<std::string> deOutput;
+            while(!deData.empty())
+            {
+                int i = 1;
+                input += deData[i];
+                //decryptinng
+                substitutionCypherDecrypt(cypher, input, output);
+                deOutput.push_back(output);
+                i++;
+            }
             //write to file
-            putData(outputFileName, deData);
+            putData(outputFileName, deOutput);
             return 0;
         }
 	}
