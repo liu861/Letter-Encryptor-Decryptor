@@ -52,6 +52,7 @@ int ProcessCommandArgs(int argc, const char* argv[])
                 //encrypting
                 substitutionCypherEncrypt(cypher, input, output);
                 enOutput.push_back(output);
+                enData.pop_back();
                 i++;
             }
             //write out to file
@@ -80,6 +81,7 @@ int ProcessCommandArgs(int argc, const char* argv[])
                 //decryptinng
                 substitutionCypherDecrypt(cypher, input, output);
                 deOutput.push_back(output);
+                deData.pop_back();
                 i++;
             }
             //write to file

@@ -41,11 +41,9 @@ bool putData(const std::string& outputLocation, const std::vector<std::string>& 
         return false;
     }
     //write to file
-    while(!data.empty())
+    for(int i = 0; i < data.size(); i++)
     {
-        int i = 0;
         ofile << data[i] << "\n";
-        i++;
     }
     // TODO: Fix this
     //close file
