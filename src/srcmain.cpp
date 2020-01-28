@@ -34,6 +34,8 @@ int ProcessCommandArgs(int argc, const char* argv[])
         {
             //we're in encrypt mode
             std::cout << "Encrypting!" << std::endl;
+            //create an empty vector
+            std::vector<std::string> enData;
             getData(<#const std::string &inputLocation#>, <#std::vector<std::string> &data#>);
             substitutionCypherEncrypt(<#const std::string &cypher#>, <#const std::string &input#>, <#std::string &output#>);
             putData(<#const std::string &outputLocation#>, <#const std::vector<std::string> &data#>);
@@ -44,6 +46,8 @@ int ProcessCommandArgs(int argc, const char* argv[])
         {
             //we're in decrypt mode
             std::cout << "Decrypting!" << std::endl;
+            //create an empty vector
+            std::vector<std::string> deData;
             getData(<#const std::string &inputLocation#>, <#std::vector<std::string> &data#>);
             substitutionCypherDecrypt(<#const std::string &cypher#>, <#const std::string &input#>, <#std::string &output#>);
             putData(<#const std::string &outputLocation#>, <#const std::vector<std::string> &data#>);
