@@ -34,11 +34,21 @@ int ProcessCommandArgs(int argc, const char* argv[])
         {
             //we're in encrypt mode
             std::cout << "Encrypting!" << std::endl;
-            //create an empty vector
+            //create an empty vector to store input text
             std::vector<std::string> enData;
-            getData(<#const std::string &inputLocation#>, <#std::vector<std::string> &data#>);
-            substitutionCypherEncrypt(<#const std::string &cypher#>, <#const std::string &input#>, <#std::string &output#>);
-            putData(<#const std::string &outputLocation#>, <#const std::vector<std::string> &data#>);
+            //move input data into vector of strings
+            getData(inputFileName, enData);
+            //get cypher from line 1
+            std::string cypher;
+            cypher += enData[0];
+            //declare input and output strings for subcypher function
+            std::string input;
+            input += enData[1];
+            std::string output;
+            //encrypting
+            substitutionCypherEncrypt(cypher, input, output);
+            //write out to file
+            putData(outputFileName, enData);
             return 0;
         }
 		// TODO: complete decrypt mode
@@ -48,9 +58,18 @@ int ProcessCommandArgs(int argc, const char* argv[])
             std::cout << "Decrypting!" << std::endl;
             //create an empty vector
             std::vector<std::string> deData;
-            getData(<#const std::string &inputLocation#>, <#std::vector<std::string> &data#>);
-            substitutionCypherDecrypt(<#const std::string &cypher#>, <#const std::string &input#>, <#std::string &output#>);
-            putData(<#const std::string &outputLocation#>, <#const std::vector<std::string> &data#>);
+            getData(inputFileName, deData);
+            //get cypher from line 1
+            std::string cypher;
+            cypher += deData[0];
+            //declare input and output strings for subcypher function
+            std::string input;
+            input += deData[1];
+            std::string output;
+            //decryptinng
+            substitutionCypherDecrypt(cypher, inputFileName, outputFileName);
+            //write to file
+            putData(outputFileName, deData);
             return 0;
         }
 	}
