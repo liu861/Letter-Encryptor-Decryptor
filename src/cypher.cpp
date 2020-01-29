@@ -9,40 +9,38 @@
 void substitutionCypherEncrypt(const std::string& cypher, const std::string& input, std::string& output)
 {
     // TODO: Complete function
-    for(int i = 0; i < cypher.length(); i++)
+    for(int i = 0; i < input.length(); i++)
     {
         char letter = input.at(i);
-        if(isupper(letter))
+        if(isupper(letter) != 0)
         {
             char upperLetter = '\0';
-            for(int i = 65; i <= 90; i++)
+            for(int j = 65; j <= 90; j++)
             {
-                for(int j = 0; j < 26; j++)
+                if(letter == char(j))
                 {
-                    if(letter == char(i))
-                    {
-                        upperLetter = cypher.at(j);
-                        putchar(toupper(upperLetter));
-                        output.push_back(upperLetter);
-                    }
+                    upperLetter = cypher.at(j-65);
+                    putchar(toupper(upperLetter));
                 }
             }
+            output.push_back(upperLetter);
         }
-        else
+        else if(islower(letter) != 0)
         {
             char lowerLetter = '\0';
-            for(int i = 97; i <= 122; i++)
+            for(int j = 97; j <= 122; j++)
             {
-                for(int j = 0; j < 26; j++)
+                if(letter == char(j))
                 {
-                    if(letter == char(i))
-                    {
-                        lowerLetter = cypher.at(j);
-                        putchar(tolower(lowerLetter));
-                        output.push_back(lowerLetter);
-                    }
+                    lowerLetter = cypher.at(j-97);
+                    putchar(tolower(lowerLetter));
                 }
             }
+            output.push_back(lowerLetter);
+        }
+        else if(letter == char(32))
+        {
+            output.push_back(' ');
         }
     }
 }
@@ -51,41 +49,38 @@ void substitutionCypherEncrypt(const std::string& cypher, const std::string& inp
 void substitutionCypherDecrypt(const std::string& cypher, const std::string& input, std::string& output)
 {
     // TODO: Complete function
-    for(int i = 0; i < cypher.length(); i++)
+    for(int i = 0; i < input.length(); i++)
     {
         char letter = input.at(i);
-        if(isupper(letter))
+        if(isupper(letter) != 0)
         {
             char upperLetter = '\0';
-            for(int i = 65; i <= 90; i++)
+            for(int j = 65; j <= 90; j++)
             {
-                for(int j = 0; j < 26; j++)
+                if(letter == char(j))
                 {
-                    if(letter == char(i))
-                    {
-                        upperLetter = cypher.at(j);
-                        putchar(toupper(upperLetter));
-                        output.push_back(upperLetter);
-                    }
+                    upperLetter = cypher.at(j-65);
+                    putchar(toupper(upperLetter));
                 }
-                
             }
+            output.push_back(upperLetter);
         }
-        else
+        else if(islower(letter) != 0)
         {
             char lowerLetter = '\0';
-            for(int i = 97; i <= 122; i++)
+            for(int j = 97; j <= 122; j++)
             {
-                for(int j = 0; j < 26; j++)
+                if(letter == char(j))
                 {
-                    if(letter == char(i))
-                    {
-                        lowerLetter = cypher.at(j);
-                        putchar(tolower(lowerLetter));
-                        output.push_back(lowerLetter);
-                    }
+                    lowerLetter = cypher.at(j-97);
+                    putchar(tolower(lowerLetter));
                 }
             }
+            output.push_back(lowerLetter);
+        }
+        else if(letter == char(32))
+        {
+            output.push_back(' ');
         }
     }
 }

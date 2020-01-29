@@ -45,15 +45,14 @@ int ProcessCommandArgs(int argc, const char* argv[])
             std::string output;
             //empty vector to store output text
             std::vector<std::string> enOutput;
-            while(!enData.empty())
+            for(int i = 1; i < enData.size(); i++)
             {
-                int i = 1;
                 input += enData[i];
                 //encrypting
                 substitutionCypherEncrypt(cypher, input, output);
                 enOutput.push_back(output);
-                enData.pop_back();
-                i++;
+                output.clear();
+                input.clear();
             }
             //write out to file
             putData(outputFileName, enOutput);
@@ -74,15 +73,14 @@ int ProcessCommandArgs(int argc, const char* argv[])
             std::string output;
             //empty vector to store output text
             std::vector<std::string> deOutput;
-            while(!deData.empty())
+            for(int i = 1; i < deData.size(); i++)
             {
-                int i = 1;
                 input += deData[i];
-                //decryptinng
+                //decrypting
                 substitutionCypherDecrypt(cypher, input, output);
                 deOutput.push_back(output);
-                deData.pop_back();
-                i++;
+                output.clear();
+                input.clear();
             }
             //write to file
             putData(outputFileName, deOutput);
