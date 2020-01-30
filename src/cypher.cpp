@@ -12,34 +12,19 @@ void substitutionCypherEncrypt(const std::string& cypher, const std::string& inp
     for(int i = 0; i < input.length(); i++)
     {
         char letter = input.at(i);
-        if(isupper(int(letter)) != 0)
+        //if char is a letter
+        if(isalpha(int(letter)))
         {
-            char upperLetter = '\0';
-            for(int j = 65; j <= 90; j++)
-            {
-                if(letter == char(j))
-                {
-                    upperLetter = cypher.at(j-65);
-                }
-            }
-            output.push_back(upperLetter);
+            //set letter to place in cipher
+            char newLetter = (char)(65 + cypher.find(toupper(letter)));
+            //for lowercase letters
+            if(islower(letter)) newLetter += 32;
+            output.push_back(newLetter);
         }
-        else if(islower(int(letter)) != 0)
+        //if char is not a letter
+        else
         {
-            char lowerLetter = '\0';
-            for(int j = 97; j <= 122; j++)
-            {
-                if(letter == char(j))
-                {
-                    lowerLetter = cypher.at(j-97);
-                    lowerLetter = char(int(lowerLetter)+32);
-                }
-            }
-            output.push_back(char(lowerLetter));
-        }
-        else if(letter == char(32))
-        {
-            output.push_back(' ');
+            output.push_back(letter);
         }
     }
 }
@@ -51,34 +36,29 @@ void substitutionCypherDecrypt(const std::string& cypher, const std::string& inp
     for(int i = 0; i < input.length(); i++)
     {
         char letter = input.at(i);
-        if(isupper(int(letter)) != 0)
+        //if char is a letter
+        if(isalpha(letter))
         {
-            char upperLetter = '\0';
-            for(int j = 65; j <= 90; j++)
+            char newLetter = '\0';
+            if(isupper(letter))
             {
-                if(letter == char(j))
-                {
-                    upperLetter = cypher.at(j-65);
-                }
+                newLetter = cypher.at(letter - 65);
             }
-            output.push_back(upperLetter);
-        }
-        else if(islower(int(letter)) != 0)
-        {
-            char lowerLetter = '\0';
-            for(int j = 97; j <= 122; j++)
+            else if(islower(letter))
             {
-                if(letter == char(j))
-                {
-                    lowerLetter = cypher.at(j-97);
-                    lowerLetter = char(int(lowerLetter)+32);
-                }
+                newLetter = cypher.at(letter - 97);
             }
-            output.push_back(char(lowerLetter));
+            //char newLetter = cypher.at(letter - (isupper(letter) ? 65 : 97));
+            if(islower(letter))
+            {
+                newLetter += 32;
+            }
+            output.push_back(newLetter);
         }
-        else if(letter == char(32))
+        //if char is punctuation, numbers, etc.
+        else
         {
-            output.push_back(' ');
+            output.push_back(letter);
         }
     }
 }

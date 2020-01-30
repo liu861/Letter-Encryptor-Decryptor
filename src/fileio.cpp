@@ -41,10 +41,11 @@ bool putData(const std::string& outputLocation, const std::vector<std::string>& 
         return false;
     }
     //write to file
-    for(int i = 0; i < data.size(); i++)
+    for(int i = 0; i < data.size()-1; i++)
     {
         ofile << data[i] << "\n";
     }
+    ofile << data[data.size()-1];
     // TODO: Fix this
     //close file
     ofile.close();

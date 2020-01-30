@@ -8,6 +8,9 @@
 #include "fileio.h"
 #include "cypher.h"
 
+using std::string;
+using std::vector;
+
 // Implementation of ProcessCommandArgs
 int ProcessCommandArgs(int argc, const char* argv[])
 {
@@ -16,7 +19,6 @@ int ProcessCommandArgs(int argc, const char* argv[])
 	{
 		// Not used for this assignment	
 	}
-
 	// Command line testing mode
 	else if (argc == 4)
 	{
@@ -34,17 +36,18 @@ int ProcessCommandArgs(int argc, const char* argv[])
         {
             //we're in encrypt mode
             //create an empty vector to store input text
-            std::vector<std::string> enData;
+            vector<string> enData;
             //move input data into vector of strings
             getData(inputFileName, enData);
             //get cypher from line 1
-            std::string cypher;
+            string cypher;
             cypher += enData[0];
             //declare input and output strings for subcypher function
-            std::string input;
-            std::string output;
+            string input;
+            string output;
             //empty vector to store output text
-            std::vector<std::string> enOutput;
+            vector<string> enOutput;
+            enOutput.push_back(cypher);
             for(int i = 1; i < enData.size(); i++)
             {
                 input += enData[i];
@@ -63,16 +66,17 @@ int ProcessCommandArgs(int argc, const char* argv[])
         {
             //we're in decrypt mode
             //create an empty vector to store input text
-            std::vector<std::string> deData;
+            vector<string> deData;
             getData(inputFileName, deData);
             //get cypher from line 1
-            std::string cypher;
+            string cypher;
             cypher += deData[0];
             //declare input and output strings for subcypher function
-            std::string input;
-            std::string output;
+            string input;
+            string output;
             //empty vector to store output text
-            std::vector<std::string> deOutput;
+            vector<string> deOutput;
+            deOutput.push_back(cypher);
             for(int i = 1; i < deData.size(); i++)
             {
                 input += deData[i];
