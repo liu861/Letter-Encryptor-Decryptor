@@ -32,7 +32,7 @@ void substitutionCypherEncrypt(const std::string& cypher, const std::string& inp
                 if(letter == char(j))
                 {
                     lowerLetter = cypher.at(j-97);
-                    putchar(tolower(lowerLetter));
+                    lowerLetter = char(int(lowerLetter)+32);
                 }
             }
             output.push_back(char(lowerLetter));
@@ -71,7 +71,7 @@ void substitutionCypherDecrypt(const std::string& cypher, const std::string& inp
                 if(letter == char(j))
                 {
                     lowerLetter = cypher.at(j-97);
-                    putchar(tolower(lowerLetter));
+                    lowerLetter = char(int(lowerLetter)+32);
                 }
             }
             output.push_back(char(lowerLetter));
