@@ -32,7 +32,6 @@ void substitutionCypherEncrypt(const std::string& cypher, const std::string& inp
     }
 }
 
-
 // Decrypts 2nd input
 void substitutionCypherDecrypt(const std::string& cypher, const std::string& input, std::string& output)
 {
