@@ -15,10 +15,13 @@ void substitutionCypherEncrypt(const std::string& cypher, const std::string& inp
         //if char is a letter
         if(isalpha(int(letter)))
         {
-            //set letter to place in cipher
+            //set letter to correct place in cipher
             char newLetter = (char)(65 + cypher.find(toupper(letter)));
-            //for lowercase letters
-            if(islower(letter)) newLetter += 32;
+            //if letter is lowercase
+            if(islower(letter))
+            {
+                newLetter += 32;
+            }
             output.push_back(newLetter);
         }
         //if char is not a letter
@@ -48,7 +51,7 @@ void substitutionCypherDecrypt(const std::string& cypher, const std::string& inp
             {
                 newLetter = cypher.at(letter - 97);
             }
-            //char newLetter = cypher.at(letter - (isupper(letter) ? 65 : 97));
+            //if letter is lowercase
             if(islower(letter))
             {
                 newLetter += 32;
