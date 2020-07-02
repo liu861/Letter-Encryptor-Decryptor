@@ -1,4 +1,4 @@
-# Letter Encrypterr/Decrypter - Spring 2020 #
+# Letter Encrypter/Decrypter - Spring 2020 #
 
 ## Student information... ##
 Name: Yue (Amy) Liu
